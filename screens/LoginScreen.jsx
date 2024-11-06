@@ -22,11 +22,13 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [isSecure, setIsSecure] = useState(true);
 
-  const handleEmailChange = (value) => {
-    setEmail(value);
-  };
-  const handlePasswordChange = (value) => {
-    setPassword(value);
+  const onSubmitHandler = () => {
+    const values = { email, password };
+    console.log(values);
+    Keyboard.dismiss();
+    setEmail("");
+    setPassword("");
+    setIsSecure(true);
   };
 
   const showButton = (
@@ -57,7 +59,7 @@ const LoginScreen = () => {
             <Input
               placeholder="Адреса електронної пошти"
               value={email}
-              onChangeText={handleEmailChange}
+              onChangeText={(email) => setEmail(email)}
             />
 
             <Input
@@ -65,13 +67,13 @@ const LoginScreen = () => {
               rightButton={showButton}
               outerStyles={styles.passwordButton}
               value={password}
-              onChangeText={handlePasswordChange}
+              onChangeText={(password) => setPassword(password)}
               isSecure={isSecure}
             />
           </View>
 
           <View style={[styles.innerContainer, styles.buttonContainer]}>
-            <Button>
+            <Button onPress={onSubmitHandler}>
               <Text style={styles.loginButtonText}>Увійти</Text>
             </Button>
 
