@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import bgImage from "./assets/bgd.jpg";
@@ -5,8 +6,15 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import LoginScreen from "./screens/LoginScreen";
+import PostsScreen from "./screens/PostsScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ArrowBackIcon from "./icons/ArrowBackIcon";
+import LogoutIcon from "./icons/LogoutIcon";
+import StackNavigator from "./navigation/StackNavigator";
 
 SplashScreen.preventAutoHideAsync();
+const MainStack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,25 +40,7 @@ export default function App() {
 
   return (
     <>
-      <LoginScreen />
-      {/* <RegistrationScreen /> */}
+      <StackNavigator />
     </>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-
-//   text: {
-//     fontFamily: "Roboto-Bold",
-//   },
-//   // bg: {
-//   //   flex: 1,
-//   //   justifyContent: "center",
-//   // },
-// });

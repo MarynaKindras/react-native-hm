@@ -15,10 +15,13 @@ import Input from "../components/Input";
 import { useState } from "react";
 import Button from "../components/Button";
 import Icon from "react-native-vector-icons/AntDesign";
+import { useNavigation } from "@react-navigation/native";
+import AddAvatarButton from "../components/AddAvatarButton";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
@@ -56,11 +59,7 @@ const RegistrationScreen = () => {
         />
 
         <View style={styles.formContainer}>
-          <View style={styles.avatarWrapper}>
-            <TouchableOpacity style={styles.addButton}>
-              <Icon name="plus" size={16} style={styles.addButtonIcon} />
-            </TouchableOpacity>
-          </View>
+          <AddAvatarButton />
 
           <Text style={styles.title}>Реєстрація</Text>
 
@@ -89,12 +88,12 @@ const RegistrationScreen = () => {
 
           <View style={[styles.innerContainer, styles.buttonContainer]}>
             <Button onPress={onSubmitHandler}>
-              <Text style={styles.loginButtonText}>Зареєстуватися</Text>
+              <Text style={styles.loginButtonText}>Зареєстpуватися</Text>
             </Button>
 
             <View style={styles.signUpContainer}>
-              <Text style={styles.signUpText}>Вже є акаунт? </Text>
-              <TouchableOpacity>
+              <Text style={styles.signUpText}>Вже є акаунт?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Text style={[styles.signUpText, styles.signUpRef]}>
                   Увійти
                 </Text>
