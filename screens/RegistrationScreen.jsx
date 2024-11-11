@@ -59,6 +59,11 @@ const RegistrationScreen = () => {
         />
 
         <View style={styles.formContainer}>
+          {/* <View style={styles.avatarWrapper}>
+            <TouchableOpacity style={styles.addButton}>
+              <Icon name="plus" size={16} style={styles.addButtonIcon} />
+            </TouchableOpacity>
+          </View> */}
           <AddAvatarButton />
 
           <Text style={styles.title}>Реєстрація</Text>
@@ -88,7 +93,7 @@ const RegistrationScreen = () => {
 
           <View style={[styles.innerContainer, styles.buttonContainer]}>
             <Button onPress={onSubmitHandler}>
-              <Text style={styles.loginButtonText}>Зареєстpуватися</Text>
+              <Text style={styles.loginButtonText}>Зареєстуватися</Text>
             </Button>
 
             <View style={styles.signUpContainer}>
