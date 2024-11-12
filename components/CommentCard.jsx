@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import { colors } from "../styles/global";
+import avatar_1 from "../assets/avatar.jpg";
 
 const CommentCard = ({ item: { avatar, message, datetime }, index }) => {
   const isEven = (index + 1) % 2 === 0;

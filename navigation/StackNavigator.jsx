@@ -1,19 +1,18 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import LogoutIcon from "../icons/LogoutIcon";
 import RegistrationScreen from "../screens/RegistrationScreen";
 import LoginScreen from "../screens/LoginScreen";
-import PostsScreen from "../screens/PostsScreen";
 import BottomTabNavigator from "./BottomTabNavigator";
 import CommentsScreen from "../screens/CommentsScreen";
 import BackButton from "../components/BackButton";
 import { StyleSheet } from "react-native";
 import MapScreen from "../screens/MapScreen";
+import useAuth from "../hooks/useAuth";
 
 const MainStack = createStackNavigator();
 
 const StackNavigator = () => {
-  const isLoggedIn = true;
+  const { isLoggedIn } = useAuth();
 
   return (
     <NavigationContainer>
